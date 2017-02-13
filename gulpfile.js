@@ -10,7 +10,7 @@ global.$ = {
     app: require('./gulp/paths/app.js')
   },
   gulp: require('gulp'),
-  spritesmith: require('gulp.spritesmith'), // new
+  spritesmith: require('gulp.spritesmith'),     ////// new
   del: require('del'),
   browserSync: require('browser-sync').create(),
   gp: require('gulp-load-plugins')()
