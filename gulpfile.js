@@ -10,6 +10,7 @@ global.$ = {
     app: require('./gulp/paths/app.js')
   },
   gulp: require('gulp'),
+  spritesmith: require('gulp.spritesmith'), // new
   del: require('del'),
   browserSync: require('browser-sync').create(),
   gp: require('gulp-load-plugins')()
@@ -35,3 +36,22 @@ $.gulp.task('default', $.gulp.series(
     'serve'
   )
 ));
+
+// new tasks
+
+$.gulp.task('sprite', function () {
+  var spriteData = gulp.src('IMAGES-NEW/*.png').pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.css'
+  }));
+  return spriteData.pipe(gulp.dest('APP/sprite/'));
+});
+
+
+
+
+$.gulp.task('copytoapp', function(){
+  return gulp.src('/source/images/*.png')
+    .pipe(gulp.dest('APP/img/'));
+});
+
