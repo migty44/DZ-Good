@@ -37,21 +37,12 @@ $.gulp.task('default', $.gulp.series(
   )
 ));
 
-// new tasks
-
-$.gulp.task('sprite', function () {
-  var spriteData = gulp.src('IMAGES-NEW/*.png').pipe(spritesmith({
-    imgName: 'sprite.png',
-    cssName: 'sprite.css'
-  }));
-  return spriteData.pipe(gulp.dest('APP/sprite/'));
-});
+$.gulp.task('newtask', $.gulp.parallel(
+    'new.sprite',
+    'new.copy'
+  )
+);
 
 
 
-
-$.gulp.task('copytoapp', function(){
-  return gulp.src('/source/images/*.png')
-    .pipe(gulp.dest('APP/img/'));
-});
 
